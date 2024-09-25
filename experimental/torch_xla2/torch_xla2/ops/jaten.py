@@ -2193,6 +2193,9 @@ def _aten_hypot(input, other):
 def _aten_igamma(input, other):
   return jax.scipy.special.gammainc(input, other)
 
+@op(torch.ops.aten._linalg_det)
+def _aten_ops_linalg_det(A):
+  return jnp.linalg.det(jnp.array(A._value))
 
 @op(torch.ops.aten.linalg_eig)
 def _aten_linalg_eig(A):

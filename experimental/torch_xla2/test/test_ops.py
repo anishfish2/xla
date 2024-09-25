@@ -41,7 +41,6 @@ skiplist = {
     "linalg.cholesky",
     "linalg.cholesky_ex",
     "linalg.cond",
-    "linalg.det",
     "linalg.eigh",
     "linalg.eigvalsh",
     "linalg.householder_product",

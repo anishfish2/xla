@@ -2194,9 +2194,14 @@ def _aten_igamma(input, other):
   return jax.scipy.special.gammainc(input, other)
 
 @op(torch.ops.aten._linalg_det)
-def _aten_ops_linalg_det(A):
-  return jnp.linalg.det(jnp.array(A._value))
-
+def _aten_ops_linalg_det(A, out=None):
+  if out is not None:
+    out = jnp.linalg.det(A)
+    return
+  a = jnp.array([[1, 2],
+               [3, 4]])
+  return jnp.linalg.det(A)
+  
 @op(torch.ops.aten.linalg_eig)
 def _aten_linalg_eig(A):
   return jnp.linalg.eig(A)
